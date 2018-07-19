@@ -72,6 +72,12 @@ $colors: (
 
 @import "ionic.theme.default";
 
+// import custom theme color
+@import "theme.light";
+@import "theme.dark";
+@import "theme.orange";
+@import "theme.lushMeadow";
+
 
 // Ionicons
 // --------------------------------------------------
