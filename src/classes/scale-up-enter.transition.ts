@@ -10,8 +10,7 @@ public init() {
     wrapper.fromTo('transform', 'scale(0)', 'scale(1.0)');
     wrapper.fromTo('opacity', 1, 1);
 
-    this
-        .element(this.enteringView.pageRef())
+    this.element(this.enteringView.pageRef())
         .duration(500)
         .easing('cubic-bezier(.1, .7, .1, 1)')
         .add(wrapper);

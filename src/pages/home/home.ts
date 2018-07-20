@@ -1,6 +1,6 @@
 import { SettingsProvider } from '../../providers/settings/settings';
 import { Component } from '@angular/core';
-import { NavController, AlertController, ModalController } from 'ionic-angular/umd';
+import { NavController, AlertController, ModalController } from 'ionic-angular';
 import { ModalPage } from '../modal/modal';
 
 @Component({
@@ -78,10 +78,6 @@ export class HomePage {
             enableBackdropDismiss: false,
             enterAnimation: 'modal-scale-up-enter',
             leaveAnimation: 'modal-scale-up-leave'
-        });
-
-        profileModal.onDidDismiss(() => {
-            // Nothing to do
         });
         profileModal.present();
     }

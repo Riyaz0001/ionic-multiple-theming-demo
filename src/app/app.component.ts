@@ -1,7 +1,6 @@
 import { SettingsProvider } from '../providers/settings/settings';
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular/umd';
-import { Config } from 'ionic-angular/umd';
+import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -34,13 +33,12 @@ export class MyApp {
     ]; 
 
     constructor(
-        platform: Platform, 
+        private platform: Platform, 
         private statusBar: StatusBar, 
         private splashScreen: SplashScreen, 
-        private settings: SettingsProvider,
-        public config: Config) {
-            
-            platform.ready().then(() => {
+        private settings: SettingsProvider) {
+
+            this.platform.ready().then(() => {
                 // get current theme
                 this.settings.getCurrentTheme().subscribe(val => {
                     this.selectedTheme = val;

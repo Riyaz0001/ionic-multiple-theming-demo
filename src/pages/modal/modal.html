@@ -20,77 +20,14 @@
 
     <ion-content padding>
         <ion-list radio-group>
-            <ion-item>
-                <ion-avatar item-left>
-                    <img src="../../assets/imgs/light.jpg">
-                </ion-avatar>
-                <ion-label>Light</ion-label>
-                <ion-radio checked="true" value="light-theme"></ion-radio>
-            </ion-item>
-
-            <ion-item>
-                <ion-avatar item-left>
-                    <img checked="false" src="../../assets/imgs/dark.jpg">
-                </ion-avatar>
-                <ion-label>Dark</ion-label>
-                <ion-radio checked="false" value="dark-theme"></ion-radio>
-            </ion-item>
             
-            <ion-item>
+            <ion-item *ngFor="let item of themeObject">
                 <ion-avatar item-left>
-                    <img src="../../assets/imgs/orange.jpg">
+                    <img src="{{item.colorImage}}">
                 </ion-avatar>
-                <ion-label>Orange</ion-label>
-                <ion-radio checked="false" value="orange-theme"></ion-radio>
+                <ion-label>{{item.themeName}}</ion-label>
+                <ion-radio (ionSelect)="setThemeName(item.cssValue)" checked="{{item.checked}}" value="{{item.cssValue}}"></ion-radio>
             </ion-item>
-
-            <ion-item>
-                <ion-avatar item-left>
-                    <img src="../../assets/imgs/lushMeadow.jpg">
-                </ion-avatar>
-                <ion-label>Lush Meadow</ion-label>
-                <ion-radio checked="true" value="lushMeadow-theme"></ion-radio>
-            </ion-item>
-
-            <!-- <ion-item>
-                <ion-avatar item-left>
-                    <img checked="false" src="../../assets/imgs/dark.png">
-                </ion-avatar>
-                <ion-label>Dark</ion-label>
-                <ion-radio checked="false" value="dark-theme"></ion-radio>
-            </ion-item>
-            
-            <ion-item>
-                <ion-avatar item-left>
-                    <img src="../../assets/imgs/orange.png">
-                </ion-avatar>
-                <ion-label>Orange</ion-label>
-                <ion-radio checked="false" value="orange-theme"></ion-radio>
-            </ion-item>
-           
-            <ion-item>
-                <ion-avatar item-left>
-                    <img src="../../assets/imgs/white2.jpg">
-                </ion-avatar>
-                <ion-label>Light</ion-label>
-                <ion-radio checked="true" value="light-theme"></ion-radio>
-            </ion-item>
-
-            <ion-item>
-                <ion-avatar item-left>
-                    <img checked="false" src="../../assets/imgs/dark.png">
-                </ion-avatar>
-                <ion-label>Dark</ion-label>
-                <ion-radio checked="false" value="dark-theme"></ion-radio>
-            </ion-item>
-            
-            <ion-item>
-                <ion-avatar item-left>
-                    <img src="../../assets/imgs/orange.png">
-                </ion-avatar>
-                <ion-label>Orange</ion-label>
-                <ion-radio checked="false" value="orange-theme"></ion-radio>
-            </ion-item> -->
             
         </ion-list>
     </ion-content>
@@ -100,7 +37,7 @@
             <ion-icon name="close"></ion-icon>
             Cancel
         </button>
-        <button float-end ion-button icon-start (click)="dismiss()">
+        <button float-end ion-button icon-start (click)="saveTheme()">
             <ion-icon name="checkmark"></ion-icon>
             Save
         </button>
